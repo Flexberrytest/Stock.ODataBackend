@@ -28,6 +28,10 @@ namespace IIS.Stock
     //  *** End programmer edit section *** (Товар CustomAttributes)
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
+    [View("ТоварE", new string[] {
+            "Наименование as \'Наименование\'",
+            "Количество as \'Количество\'",
+            "Цена as \'Цена\'"})]
     public class Товар : ICSSoft.STORMNET.DataObject
     {
         
@@ -168,6 +172,24 @@ namespace IIS.Stock
                 //  *** Start programmer edit section *** (Товар.Склад Set end)
 
                 //  *** End programmer edit section *** (Товар.Склад Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Class views container.
+        /// </summary>
+        public class Views
+        {
+            
+            /// <summary>
+            /// "ТоварE" view.
+            /// </summary>
+            public static ICSSoft.STORMNET.View ТоварE
+            {
+                get
+                {
+                    return ICSSoft.STORMNET.Information.GetView("ТоварE", typeof(IIS.Stock.Товар));
+                }
             }
         }
     }

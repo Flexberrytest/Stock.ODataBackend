@@ -28,6 +28,14 @@ namespace IIS.Stock
     //  *** End programmer edit section *** (Склад CustomAttributes)
     [AutoAltered()]
     [AccessType(ICSSoft.STORMNET.AccessType.none)]
+    [View("СкладE", new string[] {
+            "Адрес as \'Адрес\'",
+            "работников as \'Работников\'"})]
+    [AssociatedDetailViewAttribute("СкладE", "Товар", "ТоварE", true, "", "Товар", true, new string[] {
+            ""})]
+    [View("СкладL", new string[] {
+            "Адрес as \'Адрес\'",
+            "работников as \'Работников\'"})]
     public class Склад : ICSSoft.STORMNET.DataObject
     {
         
@@ -137,6 +145,35 @@ namespace IIS.Stock
                 //  *** Start programmer edit section *** (Склад.Товар Set end)
 
                 //  *** End programmer edit section *** (Склад.Товар Set end)
+            }
+        }
+        
+        /// <summary>
+        /// Class views container.
+        /// </summary>
+        public class Views
+        {
+            
+            /// <summary>
+            /// "СкладE" view.
+            /// </summary>
+            public static ICSSoft.STORMNET.View СкладE
+            {
+                get
+                {
+                    return ICSSoft.STORMNET.Information.GetView("СкладE", typeof(IIS.Stock.Склад));
+                }
+            }
+            
+            /// <summary>
+            /// "СкладL" view.
+            /// </summary>
+            public static ICSSoft.STORMNET.View СкладL
+            {
+                get
+                {
+                    return ICSSoft.STORMNET.Information.GetView("СкладL", typeof(IIS.Stock.Склад));
+                }
             }
         }
     }
